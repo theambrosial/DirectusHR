@@ -26,7 +26,7 @@
     "build-rename-js": "renamer --regex --find \"main\\.[^\\.]+\\.js\" --replace \"react-django.ui.js\" build/static/js/*.js",
     "build-rename-css": "renamer --regex --find \"main\\.[^\\.]+\\.css\" --replace \"react-django.ui.css\" build/static/css/*.css",
     "copy-buildfiles": "npm run copy-build-js && npm run copy-build-css && npm run copy-build-logo",
-    "copy-build-logo": "copyfiles -f \"build/static/media/*\" \"../ststic_local/img/\"",
+    "copy-build-logo": "copyfiles -f \"build/static/media/*\" \"../static_local/img/\"",
     "copy-build-js": "copyfiles -f \"build/static/js/*.js\" \"../static_local/js/\"",
     "copy-build-css": "copyfiles -f \"build/static/css/*.css\" \"../static_local/css/\"",
     "collectstatic": "python ../manage.py collectstatic --no-input"
