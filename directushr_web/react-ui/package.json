@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "copyfiles": "^2.0.0",
-    "renamer": "^0.7.0"
+
   },
   "scripts": {
     "start": "react-scripts start",
