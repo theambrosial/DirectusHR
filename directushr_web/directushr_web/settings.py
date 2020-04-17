@@ -1,3 +1,4 @@
+import json
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'rest_framework',
     'user_app',
 ]
 
@@ -62,7 +65,16 @@ WSGI_APPLICATION = 'directushr_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
+DATABASES = {
+ 'default': {
+     'ENGINE': 'django.db.backends.postgresql',
+     'NAME': 'DHR_db',
+     'USER': 'postgres',
+     'PASSWORD': 'vikas123',
+     'HOST': '127.0.0.1',
+     'PORT': '5432',
+ }
+}
 
 
 # Password validation
@@ -100,6 +112,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+REACT_BUILD_DIR = os.path.join(BASE_DIR, 'react-ui', 'build')
+
+# Pull the js and css filenames from the current build
+path = os.path.join(REACT_BUILD_DIR, "asset-manifest.json")
+with open(path) as f:
+    data = json.load(f)
+
+
+REACT_CSS_PATH = data['files'].get('main.css').replace('static/', '')
+REACT_JS_PATH = data['files'].get('main.js').replace('static/', '')
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
