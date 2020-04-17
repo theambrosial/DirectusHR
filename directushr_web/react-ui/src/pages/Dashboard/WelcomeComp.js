@@ -21,7 +21,7 @@ class WelcomeComp extends Component {
                             <Col xs="7">
                                 <div className="text-primary p-3">
                                     <h5 className="text-primary">Welcome Back !</h5>
-                                    <p>Skote Dashboard</p>
+                                    <p>Dashboard</p>
                                 </div>
                             </Col>
                             <Col xs="5" className="align-self-end">
@@ -35,8 +35,8 @@ class WelcomeComp extends Component {
                                 <div className="avatar-md profile-user-wid mb-4">
                                     <img src={avatar1} alt="" className="img-thumbnail rounded-circle" />
                                 </div>
-                                <h5 className="font-size-15 text-truncate">Henry Price</h5>
-                                <p className="text-muted mb-0 text-truncate">UI/UX Designer</p>
+                                <h5 className="font-size-15 text-truncate">Vikas Pandey</h5>
+                                <p className="text-muted mb-0 text-truncate">Admin</p>
                             </Col>
 
                             <Col sm="8">
@@ -44,11 +44,11 @@ class WelcomeComp extends Component {
                                     <Row>
                                         <Col xs="6">
                                             <h5 className="font-size-15">125</h5>
-                                            <p className="text-muted mb-0">Projects</p>
+                                            <p className="text-muted mb-0">Comppany Added</p>
                                         </Col>
                                         <Col xs="6">
-                                            <h5 className="font-size-15">$1245</h5>
-                                            <p className="text-muted mb-0">Revenue</p>
+                                            <h5 className="font-size-15">100</h5>
+                                            <p className="text-muted mb-0">Recruiters Added</p>
                                         </Col>
                                     </Row>
                                     <div className="mt-4">

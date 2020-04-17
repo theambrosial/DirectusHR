@@ -59,9 +59,9 @@ class NotificationDropdown extends Component {
                     </span>
                   </div>
                   <div className="media-body">
-                    <h6 className="mt-0 mb-1">Your order is placed</h6>
+                    <h6 className="mt-0 mb-1"> Company Registration Request</h6>
                     <div className="font-size-12 text-muted">
-                      <p className="mb-1">If several languages coalesce the grammar</p>
+                      <p className="mb-1">Farintsol has requested...</p>
                       <p className="mb-0"><i className="mdi mdi-clock-outline"></i> 3 min ago</p>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ class NotificationDropdown extends Component {
                 <div className="media">
                   <img src={avatar3} className="mr-3 rounded-circle avatar-xs" alt="user-pic" />
                   <div className="media-body">
-                    <h6 className="mt-0 mb-1">James Lemire</h6>
+                    <h6 className="mt-0 mb-1">Vikas Pandey</h6>
                     <div className="font-size-12 text-muted">
                       <p className="mb-1">It will seem like simplified English.</p>
                       <p className="mb-0"><i className="mdi mdi-clock-outline"></i> 1 hours ago</p>
@@ -87,9 +87,9 @@ class NotificationDropdown extends Component {
                     </span>
                   </div>
                   <div className="media-body">
-                    <h6 className="mt-0 mb-1">Your item is shipped</h6>
+                    <h6 className="mt-0 mb-1">XYZ</h6>
                     <div className="font-size-12 text-muted">
-                      <p className="mb-1">If several languages coalesce the grammar</p>
+                      <p className="mb-1">A to Z</p>
                       <p className="mb-0"><i className="mdi mdi-clock-outline"></i> 3 min ago</p>
                     </div>
                   </div>

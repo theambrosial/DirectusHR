@@ -84,6 +84,7 @@ import FormRepeater from "../pages/Forms/FormRepeater";
 import FormUpload from "../pages/Forms/FormUpload";
 import FormWizard from "../pages/Forms/FormWizard";
 import FormXeditable from "../pages/Forms/FormXeditable";
+import candidate_add_edit_form from "../pages/DHR Forms/candidate_add_edit_form";
 
 //Ui
 import UiAlert from "../pages/Ui/UiAlert";
@@ -199,6 +200,7 @@ const authProtectedRoutes = [
 	{ path: "/form-wizard", component: FormWizard },
 	{ path: "/form-validation", component: FormValidations },
 	{ path: "/form-xeditable", component: FormXeditable },
+	{ path: "/candidate_add_edit_form", component: candidate_add_edit_form },
 
 	// Ui
 	{ path: "/ui-alerts", component: UiAlert },
@@ -219,6 +221,7 @@ const authProtectedRoutes = [
 	{ path: "/ui-video", component: UiVideo },
 	{ path: "/ui-session-timeout", component: UiSessionTimeout },
 	{ path: "/ui-rating", component: UiRating },
+	{ path: "/ui-rangeslider", component: UiRangeSlider },
 	{ path: "/ui-rangeslider", component: UiRangeSlider },
 
 

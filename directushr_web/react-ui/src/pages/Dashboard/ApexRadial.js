@@ -44,7 +44,7 @@ class ApexRadial extends Component {
                 stroke: {
                     dashArray: 4
                 },
-                labels: ["Series A"]
+                labels: ["Rating %"]
             },
             series: [67]
         }

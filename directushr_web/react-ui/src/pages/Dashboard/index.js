@@ -11,22 +11,26 @@ import modalimage2 from "../../assets/images/product/img-4.png";
 // Pages Components
 import WelcomeComp from "./WelcomeComp";
 import MonthlyEarning from "./MonthlyEarning";
-import SocialSource from "./SocialSource";
-import ActivityComp from "./ActivityComp";
-import TopCities from "./TopCities";
+
+
 import LatestTranaction from "./LatestTranaction";
 
 //Import Breadcrumb
 import Breadcrumbs from '../../components/Common/Breadcrumb';
+ {/*import SocialSource from "./SocialSource";
+  import ActivityComp from "./ActivityComp";
+import TopCities from "./TopCities";
+
+  */}
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
             reports: [
-                { title: "Orders", iconClass: "bx-copy-alt", description: "1,235" },
-                { title: "Revenue", iconClass: "bx-archive-in", description: "$35, 723" },
-                { title: "Average Price", iconClass: "bx-purchase-tag-alt", description: "$16.2" }
+                { title: "Total Candidates", iconClass: "bx-copy-alt", description: "10,235" },
+                { title: "Total Companies", iconClass: "bx-archive-in", description: "723" },
+                { title: "Total Recruiters", iconClass: "bx-purchase-tag-alt", description: "162" }
             ],
             email: [
                 { title: "Week", linkto: "#", isActive: false },
@@ -51,7 +55,7 @@ class Dashboard extends Component {
                     <Container fluid>
 
                         {/* Render Breadcrumb */}
-                        <Breadcrumbs title="Skote" breadcrumbItem="Dashboard" />
+                        <Breadcrumbs title="DirectUs HR" breadcrumbItem="Dashboard" />
 
                         <Row>
                             <Col xl="4">
@@ -106,10 +110,10 @@ class Dashboard extends Component {
                                 </Card>
                             </Col>
                         </Row>
-
+{/*
                         <Row>
                             <Col xl="4">
-                                <SocialSource />
+                                  <SocialSource />
                             </Col>
                             <Col xl="4">
                                 <ActivityComp />
@@ -118,7 +122,7 @@ class Dashboard extends Component {
                             <Col xl="4">
                                 <TopCities />
                             </Col>
-                        </Row>
+                        </Row> */}
 
                         <Row>
                             <Col lg="12">

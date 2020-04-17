@@ -14,9 +14,10 @@ import { loginUser,apiError } from '../../store/actions';
 
 // import images
 import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/logo.svg";
+import logo from "../../assets/images/brands/logo.jpg";
 
 class Login extends Component {
+
 
     constructor(props) {
         super(props);
@@ -38,22 +39,53 @@ class Login extends Component {
 
     render() {
 
+const logoImage ={
+width: "200px",
+marginLeft: "40px",
+borderRadius: "0%",
+roundedCircle: '0%',
+marginTop: "40px",
+};
+
+const cardBody = {
+};
+
+const formField = {
+marginTop: "80px",
+};
+
+const cardAllign = {
+marginTop: "20px",
+};
         return (
             <React.Fragment>
-                <div className="home-btn d-none d-sm-block">
-                    <Link to="/" className="text-dark"><i className="fas fa-home h2"></i></Link>
-                </div>
-                <div className="account-pages my-5 pt-sm-5">
-                    <div className="container">
-                        <Row className="justify-content-center">
-                            <Col md={8} lg={6} xl={5}>
+
+                <div className="">
+                    <div className="container" style={cardAllign}>
+                        <Row className="">
+                        <Col md={4} lg={4} xl={4}>
+
+                        <Link to="/candidate_add_edit_form">
+                        <h1> Candidate Add </h1>
+                        </Link>
+
+                        </Col>
+
+
+                        <Col md={4} lg={4} xl={4}>
+
+                        <h1> Why Use DirectusHR Recruitment </h1>
+
+                        </Col>
+
+                            <Col md={6} lg={6} xl={4}>
                                 <Card className="overflow-hidden">
                                     <div className="bg-soft-primary">
                                         <Row>
                                             <Col className="col-7">
                                                 <div className="text-primary p-4">
                                                     <h5 className="text-primary">Welcome Back !</h5>
-                                                    <p>Sign in to continue to Skote.</p>
+                                                    <p>Sign in to continue.</p>
                                                 </div>
                                             </Col>
                                             <Col className="col-5 align-self-end">
@@ -61,24 +93,27 @@ class Login extends Component {
                                             </Col>
                                         </Row>
                                     </div>
-                                    <CardBody className="pt-0">
+                                    <CardBody className="pt-0" style={cardBody}>
                                         <div>
+
                                             <Link to="/">
                                                 <div className="avatar-md profile-user-wid mb-4">
-                                                    <span className="avatar-title rounded-circle bg-light">
-                                                        <img src={logo} alt="" className="rounded-circle" height="34" />
+                                                    <span className="">
+                                                        <img src={logo} alt="" style={logoImage}/>
                                                     </span>
                                                 </div>
                                             </Link>
+
+
                                         </div>
-                                        <div className="p-2">
+                                        <div className="p-2" style={formField}>
 
                                             <AvForm className="form-horizontal" onValidSubmit={this.handleValidSubmit}>
 
                                                 {this.props.error && this.props.error ? <Alert color="danger">{this.props.error}</Alert> : null}
 
                                                 <div className="form-group">
-                                                    <AvField name="email" label="Email" value="admin@themesbrand.com" className="form-control" placeholder="Enter email" type="email" required />
+                                                    <AvField name="email" label="Email" value="admin@directushr.com" className="form-control" placeholder="Enter email" type="email" required />
                                                 </div>
 
                                                 <div className="form-group">
@@ -102,8 +137,8 @@ class Login extends Component {
                                     </CardBody>
                                 </Card>
                                 <div className="mt-5 text-center">
-                                    <p>Don't have an account ? <Link to="register" className="font-weight-medium text-primary"> Signup now </Link> </p>
-                                    <p>© {new Date().getFullYear()} Skote. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                    <p>Create Account - <Link to="register" className="font-weight-medium text-primary"> Signup now </Link> </p>
+                                    <p>© {new Date().getFullYear()} DirectUs HR. Crafted with <i className="mdi mdi-heart text-danger"></i> by Farintsol.</p>
                                 </div>
                             </Col>
                         </Row>

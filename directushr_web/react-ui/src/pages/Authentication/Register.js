@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 // import images
 import profileImg from "../../assets/images/profile-img.png";
-import logoImg from "../../assets/images/logo.svg";
+import logoImg from "../../assets/images/brands/logo.jpg";
 
 class Register extends Component {
   constructor(props) {
@@ -36,15 +36,25 @@ class Register extends Component {
     }
 
   render() {
+  const logoImage ={
+width: "200px",
+marginLeft: "20%",
+borderRadius: "0%",
+roundedCircle: '0%',
+marginTop: "40px",
+};
+const cardAllign = {
+marginTop: "20px",
+};
+
+const formField = {
+marginTop: "80px",
+};
     return (
       <React.Fragment>
-        <div className="home-btn d-none d-sm-block">
-          <Link to="/" className="text-dark">
-            <i className="fas fa-home h2"></i>
-          </Link>
-        </div>
-        <div className="account-pages my-5 pt-sm-5">
-          <div className="container">
+
+        <div className="">
+          <div className="container" style={cardAllign}>
             <Row className="justify-content-center">
               <Col md={8} lg={6} xl={5}>
                 <Card className="overflow-hidden">
@@ -52,8 +62,8 @@ class Register extends Component {
                     <Row>
                       <Col className="col-7">
                         <div className="text-primary p-4">
-                          <h5 className="text-primary">Free Register</h5>
-                          <p>Get your free Skote account now.</p>
+                          <h5 className="text-primary"> Register</h5>
+
                         </div>
                       </Col>
                       <Col className="col-5 align-self-end">
@@ -63,18 +73,13 @@ class Register extends Component {
                   </div>
                   <CardBody className="pt-0">
                     <div>
-                      <Link to="/">
-                        <div className="avatar-md profile-user-wid mb-4">
-                          <span className="avatar-title rounded-circle bg-light">
-                            <img
-                              src={logoImg}
-                              alt=""
-                              className="rounded-circle"
-                              height="34"
-                            />
-                          </span>
-                        </div>
-                      </Link>
+                                            <Link to="/">
+                                                <div className="">
+                                                    <span className="">
+                                                        <img src={logoImg} alt="" style={logoImage}/>
+                                                    </span>
+                                                </div>
+                                            </Link>
                     </div>
                     <div className="p-2">
                       <AvForm
@@ -132,13 +137,8 @@ class Register extends Component {
                           </button>
                         </div>
 
-                        <div className="mt-4 text-center">
-                          <p className="mb-0">
-                            By registering you agree to the Skote{" "}
-                            <Link to="#" className="text-primary">
-                              Terms of Use
-                            </Link>
-                          </p>
+                        <div   className="mt-4 text-center">
+
                         </div>
                       </AvForm>
                     </div>
@@ -156,8 +156,8 @@ class Register extends Component {
                     </Link>{" "}
                   </p>
                   <p>
-                    © {new Date().getFullYear()} Skote. Crafted with{" "}
-                    <i className="mdi mdi-heart text-danger"></i> by Themesbrand
+                    © {new Date().getFullYear()} DirectUs HR. Crafted with{" "}
+                    <i className="mdi mdi-heart text-danger"></i> by Farintsol
                   </p>
                 </div>
               </Col>

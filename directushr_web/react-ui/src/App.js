@@ -18,11 +18,11 @@ import "./assets/scss/theme.scss";
 import { initFirebaseBackend } from "./helpers/authUtils";
 
 const firebaseConfig = {
-	apiKey: "",
+	apiKey: "AIzaSyDwh0Fwn_lGtf4Km1s1fvx_yAASmm1-vzg",
 	authDomain: "",
-	databaseURL: "",
-	projectId: "",
-	storageBucket: "",
+	databaseURL: "https://carobaar-62f6e.firebaseio.com",
+	projectId: "carobaar-62f6e",
+	storageBucket: "carobaar-62f6e.appspot.com",
 	messagingSenderId: "",
 	appId: "",
 	measurementId: ""

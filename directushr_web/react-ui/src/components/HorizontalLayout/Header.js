@@ -96,15 +96,17 @@ class Header extends Component {
                   </span>
                   <span className="logo-lg">
                     <img src={logoDark} alt="" height="17" />
+
                   </span>
                 </Link>
-
                 <Link to="/" className="logo logo-light">
                   <span className="logo-sm">
                     <img src={logoLightSvg} alt="" height="22" />
+
                   </span>
                   <span className="logo-lg">
                     <img src={logoLight} alt="" height="19" />
+
                   </span>
                 </Link>
               </div>

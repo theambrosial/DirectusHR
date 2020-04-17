@@ -16,13 +16,13 @@ class MonthlyEarning extends Component {
             <React.Fragment> <Card>
                 <CardBody>
                     <CardTitle className="mb-4">
-                        Monthly Earning
+                        Client Ratings
                     </CardTitle>
                     <Row>
                         <Col sm="6">
-                            <p className="text-muted">This month</p>
-                            <h3>$34,252</h3>
-                            <p className="text-muted"><span className="text-success mr-2"> 12% <i className="mdi mdi-arrow-up"></i> </span> From previous period</p>
+                            <p className="text-muted">Total Candidate Rated</p>
+                            <h3>34,252</h3>
+                            <p className="text-muted"><span className="text-success mr-2"> 12% <i className="mdi mdi-arrow-up"></i> </span> From previous last month.</p>
                             <div className="mt-4">
                                 <Link to="" className="btn btn-primary waves-effect waves-light btn-sm">View More <i className="mdi mdi-arrow-right ml-1"></i></Link>
                             </div>

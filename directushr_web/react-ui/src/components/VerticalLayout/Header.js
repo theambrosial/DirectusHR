@@ -14,10 +14,10 @@ import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDr
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu";
 
 import megamenuImg from "../../assets/images/megamenu-img.png";
-import logo from "../../assets/images/logo.svg";
-import logoLightPng from "../../assets/images/logo-light.png";
-import logoLightSvg from "../../assets/images/logo-light.svg";
-import logoDark from "../../assets/images/logo-dark.png";
+import logo from "../../assets/images/brands/logo.jpg";
+import logoLightPng from "../../assets/images/brands/logo.jpg";
+import logoLightSvg from "../../assets/images/brands/logo.jpg";
+import logoDark from "../../assets/images/brands/logo.jpg";
 
 // import images
 import github from "../../assets/images/brands/github.png";
@@ -83,6 +83,10 @@ class Header extends Component {
   }
 
   render() {
+  const logoStyle = {
+marginTop: "20px",
+  };
+
     return (
       <React.Fragment>
         <header id="page-topbar">
@@ -91,19 +95,19 @@ class Header extends Component {
               <div className="navbar-brand-box">
                 <Link to="/" className="logo logo-dark">
                   <span className="logo-sm">
-                    <img src={logo} alt="" height="22" />
+                    <img src={logo} alt="" height="42" />
                   </span>
                   <span className="logo-lg">
-                    <img src={logoDark} alt="" height="17" />
+                    <img src={logoDark} alt="" height="47" />
                   </span>
                 </Link>
 
-                <Link to="/" className="logo logo-light">
+                <Link to="/" className="logo logo-light" style={logoStyle}>
                   <span className="logo-sm">
-                    <img src={logoLightSvg} alt="" height="22" />
+                    <img src={logoLightSvg} alt="" height="42" />
                   </span>
-                  <span className="logo-lg">
-                    <img src={logoLightPng} alt="" height="19" />
+                  <span className="logo-lg" >
+                    <h1 className="text-white"> DirectUS HR </h1>
                   </span>
                 </Link>
               </div>
@@ -120,12 +124,15 @@ class Header extends Component {
               </form>
 
               <Dropdown className="dropdown-mega d-none d-lg-block ml-2" isOpen={this.state.megaMenuDrp} toggle={() => { this.setState({ megaMenuDrp: !this.state.megaMenuDrp }) }}>
+           {/*}
                 <DropdownToggle className="btn header-item waves-effect" caret tag="button"> Mega Menu {" "}
                   <i className="mdi mdi-chevron-down"></i></DropdownToggle>
+              */}
                 <DropdownMenu className="dropdown-megamenu">
                   <Row>
                     <Col sm={8}>
                       <Row>
+
                         <Col md={4}>
                           <h5 className="font-size-14 mt-0">UI Components</h5>
                           <ul className="list-unstyled megamenu-list">
@@ -271,6 +278,7 @@ class Header extends Component {
                 </div>
               </div>
 
+{/*
               <LanguageDropdown />
 
               <Dropdown className="d-none d-lg-inline-block ml-1" isOpen={this.state.socialDrp} toggle={() => { this.setState({ socialDrp: !this.state.socialDrp }) }}>
@@ -323,6 +331,8 @@ class Header extends Component {
                   </div>
                 </DropdownMenu>
               </Dropdown>
+
+              */}
 
               <div className="dropdown d-none d-lg-inline-block ml-1">
                 <button type="button" onClick={this.toggleFullscreen} className="btn header-item noti-icon waves-effect" data-toggle="fullscreen">

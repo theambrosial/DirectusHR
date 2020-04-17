@@ -189,15 +189,14 @@ class RightSidebar extends Component {
                   <label htmlFor="radioThemeDark">Dark</label>
                   {"   "}
                   {this.state.layoutType === "vertical" ? null :
-                     <input
+                    <> <input
                       type="radio"
                       id="radioThemeColored"
                       name="radioTheme"
                       value="colored"
                       checked={this.state.topbarTheme === "colored"}
                       onChange={this.changeTopbarTheme} />
-//                      <label htmlFor="radioThemeColored">Colored</label>
-                      }
+                      <label htmlFor="radioThemeColored">Colored</label> </>}
 
                 </div>
 
