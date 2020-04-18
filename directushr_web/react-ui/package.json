@@ -71,7 +71,8 @@
   },
   "devDependencies": {
     "copyfiles": "^2.0.0",
-    "renamer": "^0.7.0"
+    "renamer": "^0.7.0",
+    "replace-in-file": "^5.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -79,12 +80,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "collect": "react-scripts build && npm run build-rename && npm run copy-buildfiles && npm run collectstatic",
-    "build-rename": "npm run build-rename-js && npm run build-rename-chunk-js && npm run build-rename-normal-chunk-js && npm run build-rename-css && npm run build-rename-chunk-css",
+    "build-rename": "npm run build-rename-logo && npm run build-rename-js && npm run build-rename-chunk-js && npm run build-rename-normal-chunk-js && npm run build-rename-css && npm run build-rename-chunk-css && npm run replace-build-files-text",
+    "build-rename-logo": "renamer --regex --find \"([^\\.])\\.[^\\.]+\\.(\\w+)\" --replace \"$1.$2\" build/static/media/*",
     "build-rename-js": "renamer --regex --find \"runtime-main\\.[^\\.]+\\.js\" --replace \"react-django.ui.js\" build/static/js/*.js",
     "build-rename-chunk-js": "renamer --regex --find \"main\\.[^\\.]+\\.js\" --replace \"react-django.chunk.js\" build/static/js/*.js",
     "build-rename-normal-chunk-js": "renamer --regex --find \"\\.[^\\.]+\\.chunk.js\" --replace \"react-django.normal-chunk.js\" build/static/js/*.js",
     "build-rename-css": "renamer --regex --find \"main\\.[^\\.]+\\.css\" --replace \"react-django.ui.css\" build/static/css/*.css",
     "build-rename-chunk-css": "renamer --regex --find \"\\.[^\\.]+\\.chunk.css\" --replace \"react-django.chunk.css\" build/static/css/*.css",
+    "replace-build-files-text" : "replace-in-file '\/\\.[^\\\\.]+\\.chunk\\.\/g' '.' 'build\/**' --isRegex --verbose",
     "copy-buildfiles": "npm run copy-build-js && npm run copy-build-css && npm run copy-build-logo",
     "copy-build-logo": "copyfiles -f \"build/static/media/*\" \"../static_local/img/\"",
     "copy-build-js": "copyfiles -f \"build/static/js/*.js\" \"../static_local/js/\"",
