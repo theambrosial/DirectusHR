@@ -49,7 +49,8 @@ class UserAdmin(BaseUserAdmin):
 
     fieldsets = (
         ('Login Credentials', {'fields': ('mobile', 'password')}),
-        ('Personal info', {'fields': ('email', 'first_name', 'last_name')}),
+        ('Personal info', {'fields': ('email', 'first_name', 'last_name','user_role')}),
+        ('Role info', {'fields': ('is_client', 'is_inhouse_rec', 'is_outside_rec','is_client_res_manager', 'is_candidate')}),
         ('Permissions', {'fields': ('is_admin', 'is_active')}),
         ('Seen', {'fields': ('last_login',)}),
     )

@@ -29,6 +29,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'user_app',
+    'client_app',
+    'crm_app',
+    'candidate_app',
+    'recruiter_app',
 ]
 
 MIDDLEWARE = [
@@ -120,9 +124,38 @@ path = os.path.join(REACT_BUILD_DIR, "asset-manifest.json")
 with open(path) as f:
     data = json.load(f)
 
+files_list=[]
+js_file_1 = os.path.join(BASE_DIR, "static_local","js","mainreact-django.normal-chunk.js")
+js_file_2 = os.path.join(BASE_DIR, "static_local","js","2react-django.normal-chunk.js")
+js_file_3 = os.path.join(BASE_DIR, "static_local","js","react-django.ui.js")
+css_file_1 = os.path.join(BASE_DIR, "static_local","css","2react-django.chunk.css")
+css_file_2 = os.path.join(BASE_DIR, "static_local","css","mainreact-django.chunk.css")
+files_list.append(js_file_1)
+files_list.append(js_file_2)
+files_list.append(js_file_3)
+files_list.append(css_file_1)
+files_list.append(css_file_2)
 
-REACT_CSS_PATH = data['files'].get('main.css').replace('static/', '')
-REACT_JS_PATH = data['files'].get('main.js').replace('static/', '')
+content_list = []
+for item in data['files']:
+    content_list.append(item)
+
+for item_file in files_list:
+
+    with open(item_file , 'r',encoding="utf-8") as file :
+        filedata = file.read()
+
+
+
+    # Replace the target string
+    for it in content_list:
+
+        filedata = filedata.replace(data['files'].get(it)[1:], it.replace('/media/','/img/'))
+
+    # Write the file out again
+    with open(item_file, 'w',encoding="utf-8") as file:
+        file.write(filedata)
+
 
 
 STATIC_URL = '/static/'
