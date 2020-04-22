@@ -8,6 +8,9 @@ from django.utils.safestring import mark_safe
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser,
     User)
+from model_utils import FieldTracker
+
+from common_utilities.available_choices import available_roles
 
 phone_regex = RegexValidator(regex=r'^\+?1?\d{9,10}$',
                              message="Phone number must be entered in the format: '+999999999'. Up to 10 digits allowed.")
@@ -81,15 +84,25 @@ class SiteUserManager(BaseUserManager):
             final_filename=final_filename
         )
 
+
 class SiteUser(AbstractBaseUser):
-    mobile = models.CharField(validators=[phone_regex], max_length=15, unique=True)
-    email = models.EmailField( 'Email-id', max_length=255, unique=True )
+    country_code_mobile = models.CharField('Country code',max_length=5,)
+    mobile = models.CharField('Contact No',validators=[phone_regex], max_length=10, unique=True)
+    email = models.EmailField('Email-id', max_length=255, unique=True)
     first_name=models.CharField('First Name',max_length=30)
     last_name=models.CharField('Last Name',max_length=30)
+    user_role = models.CharField('Role',max_length=10, choices=available_roles)
+
+    # for quick role based retrieval
+    is_client = models.BooleanField(default=False)
+    is_inhouse_rec = models.BooleanField(default=False)
+    is_outside_rec = models.BooleanField(default=False)
+    is_client_res_manager = models.BooleanField(default=False)
+    is_candidate = models.BooleanField(default=False)
 
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    auto_timedate = models.DateTimeField(default=timezone.now, blank=True)
+    auto_timedate = models.DateTimeField(default=timezone.now)
 
     objects = SiteUserManager()
 
@@ -113,6 +126,34 @@ class SiteUser(AbstractBaseUser):
     @is_staff.setter
     def is_staff(self, value):
         self._is_staff = value
+
+
+class AddressModel(models.Model):
+    address_line = models.CharField(max_length=30)
+    street = models.CharField(max_length=20)
+    landmark = models.CharField(max_length=20,null=True,blank=True)
+    city = models.CharField(max_length=30)
+    district = models.CharField(max_length=20,null=True,blank=True)
+    state = models.CharField(max_length=30)
+    zip_code = models.CharField(max_length=6)
+    country = models.CharField(max_length=20)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True,blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True,blank=True)
+
+    auto_timedate = models.DateTimeField(default=timezone.now)
+    log_entered_by = models.CharField(blank=True, null=True, max_length=100)
+    tracker = FieldTracker()
+
+class TaxationDetails(models.Model):
+    bank_name = models.CharField(max_length=90,null=True,blank=True)
+    account_number = models.CharField(max_length=20,null=True,blank=True)   # max_length spacified by client
+    ifsc_code = models.CharField(max_length=11,null=True,blank=True)   # max_length from official site
+    pan_number = models.CharField(max_length=10)  # max_length from official site
+    gst_number = models.CharField(max_length=15,null=True,blank=True)
+
+    auto_timedate = models.DateTimeField(default=timezone.now)
+    log_entered_by = models.CharField(blank=True, null=True, max_length=100)
+    tracker = FieldTracker()
 
 
 
