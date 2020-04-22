@@ -65,22 +65,23 @@ marginTop: "20px",
                         <Row className="">
                         <Col md={4} lg={4} xl={4}>
 
-                        <Link to="/candidate_add_edit_form">
-                        <h1> Candidate Add </h1>
-                        </Link>
+                        <h3>DirectusHR Intro</h3>
+
 
                         </Col>
 
 
                         <Col md={4} lg={4} xl={4}>
 
-                        <h1> Why Use DirectusHR Recruitment </h1>
+                        <h3> Why Use DirectusHR Recruitment </h3>
+                        <br />
+                        <h3>Benefits 1 </h3><h3>Benefits 1 </h3>
 
                         </Col>
 
                             <Col md={6} lg={6} xl={4}>
                                 <Card className="overflow-hidden">
-                                    <div className="bg-soft-primary">
+                                   {/* <div className="bg-soft-primary">
                                         <Row>
                                             <Col className="col-7">
                                                 <div className="text-primary p-4">
@@ -92,7 +93,7 @@ marginTop: "20px",
                                                 <img src={profile} alt="" className="img-fluid" />
                                             </Col>
                                         </Row>
-                                    </div>
+                                    </div> */}
                                     <CardBody className="pt-0" style={cardBody}>
                                         <div>
 
@@ -133,6 +134,20 @@ marginTop: "20px",
                                                     <Link to="/forget-password" className="text-muted"><i className="mdi mdi-lock mr-1"></i> Forgot your password?</Link>
                                                 </div>
                                             </AvForm>
+
+                                                 <div className="mt-4 text-center">
+                                                    <Link to="/candidate_add_edit_form" className="text-muted"><i className="mdi mdi-account mr-1"></i> Request For Company Registration</Link>
+                                                </div>
+
+                                                  <div className="mt-4 text-center">
+                                                    <Link to="/candidate_add_edit_form" className="text-muted"><i className="mdi mdi-account mr-1"></i> Request For Recruiter Registration</Link>
+                                                </div>
+
+                                                 <div className="mt-4 text-center">
+                                                    <Link to="/candidate_add_edit_form" className=""><i className="mdi mdi-account mr-1"></i> Register As Candidate</Link>
+                                                </div>
+
+
                                         </div>
                                     </CardBody>
                                 </Card>
