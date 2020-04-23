@@ -21,6 +21,7 @@ class CRMModel(models.Model):
 # optional fields
     total_experience = models.FloatField(default=0.0, null=True,blank=True)
     fixed_salary = models.FloatField(default=0.0,null=True,blank=True)
+    is_deleted = models.BooleanField(default=False)
     home_location = models.ForeignKey(AddressModel, related_name='Address2',on_delete=models.CASCADE,null=True,blank=True)
 
     auto_timedate = models.DateTimeField(default=timezone.now)
