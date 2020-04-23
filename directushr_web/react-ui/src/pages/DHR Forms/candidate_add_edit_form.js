@@ -5,60 +5,101 @@ import { AvForm, AvField } from "availity-reactstrap-validation";
 
 //Import Breadcrumb
 import Breadcrumbs from '../../components/Common/Breadcrumb';
+import CountryContactNumber from '../OtherComponents/contact_number';
+import AddressHome from '../OtherComponents/address_home';
+import IndustryFunction from '../OtherComponents/industry_function';
 
 class candidate_add_edit_form extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+        this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+
+
+
   render() {
+
+
+
     return (
       <React.Fragment>
-        <div className="page-content">
+                 <Row>
+            <Col sm={0} md={3} lg={3}>
+            </Col>
+             <Col sm={12} md={6}lg={6}>
+             <center>
+
+<h1 style={{padding: "35px",}}>Upload CV </h1>
+ </center>
+             </Col>
+            </Row>
+        <div className="">
+
           <div className="container-fluid">
 
-            <Breadcrumbs title="Form" breadcrumbItem="Form Validation" />
 
             <Row>
-              <Col lg={6}>
+            <Col sm={0} md={3} lg={3}>
+            </Col>
+              <Col sm={12} md={6}lg={6}>
                 <Card>
                   <CardBody>
-                    <CardTitle>Validation type</CardTitle>
-                    <CardSubtitle className="mb-3">
-                      Parsley is a availity reactstrap validation. It helps you
-                      provide your users with feedback on their form submission
-                      before sending it to your server.
-                  </CardSubtitle>
+                    <CardTitle style={{paddingBottom: "20px",}}>Please Enter Appropriate Details Below</CardTitle>
+
+
+
 
                     <AvForm>
-                      <AvField
-                        name="username"
-                        label="Required  "
-                        placeholder="Type Something"
-                        type="text"
-                        errorMessage="Enter Name"
-                        validate={{ required: { value: true } }}
-                      />
-                      <label>Equal To</label>
-                      <AvField
-                        name="password"
-                        type="text"
-                        placeholder="Password"
-                        errorMessage="Enter password"
-                        validate={{ required: { value: true } }}
-                      />
-                      <AvField
-                        name="password1"
-                        type="text"
-                        placeholder="Re-type Password"
-                        errorMessage="Enter Re-password"
-                        validate={{
-                          required: { value: true },
-                          match: { value: "password" }
-                        }}
-                      />
-                      <AvField
+                              <Row>
+
+          <Col sm={6} md={6} lg={6}>
+                              <AvField
+                    name="fname"
+                    type="text"
+                    label="First Name"
+                    errorMessage="Above field is Required."
+                    validate={{
+                    required: {value:true},
+                     pattern: {
+                            value: "^[a-zA-Z ]*$",
+                            errorMessage: "Only alphabets and space is allowed."
+                          }
+                     }}
+                    />
+          </Col>
+
+          <Col sm={6} md={6} lg={6}>
+                               <AvField
+                    name="lname"
+                    type="text"
+                    label="Last Name"
+                    errorMessage="Above field is Required."
+                    validate={{
+                    required: {value:true},
+                     pattern: {
+                            value: "^[a-zA-Z ]*$",
+                            errorMessage: "Only alphabets and space is allowed."
+                          }
+                     }}
+                    />
+          </Col>
+
+          </Row>
+
+                    <CountryContactNumber />
+
+                                          <AvField
                         name="email"
                         label="E-Mail  "
                         placeholder="Enter Valid Email"
@@ -69,152 +110,128 @@ class candidate_add_edit_form extends Component {
                           email: { value: true }
                         }}
                       />
-                      <AvField
-                        name="digits"
-                        label="Digits  "
-                        placeholder="Enter Only Digits"
-                        type="number"
-                        errorMessage="Enter Only Digits"
-                        validate={{
-                          required: { value: true },
+
+                                            <AvField
+                    name="CV"
+                    type="file"
+                    label="Upload CV"
+                    errorMessage="Please select a file."
+                    validate={{
+                    required: {value:true},
+                     }}
+                    />
+
+
+<p style={{ fontWeight: "500", }}> Contact Number</p>
+
+                              <Row>
+
+          <Col sm={6} md={6} lg={6}>
+                              <AvField
+                    name="experience_years"
+                    type="number"
+                    errorMessage="Above field is Required."
+                    placeholder="Years"
+                    validate={{
+                    required: {value:true},
                           pattern: {
                             value: "^[0-9]+$",
-                            errorMessage: "Only Digits"
+                            errorMessage: "Only numbers are allowed."
                           }
-                        }}
-                      />
-                      <AvField
-                        name="number"
-                        label="Number  "
-                        placeholder="Enter Only number"
-                        type="number"
-                        errorMessage="Enter Only Number"
-                        validate={{
-                          required: { value: true },
+                     }}
+                    />
+          </Col>
+
+          <Col sm={6} md={6} lg={6}>
+                               <AvField
+                    name="experience_months"
+                    type="number"
+                    errorMessage="Above field is Required."
+                    placeholder="Months"
+                    validate={{
+                    required: {value:true},
+                             pattern: {
+                            value: "^[0-9]+$",
+                            errorMessage: "Only numbers are allowed."
+                          }
+                     }}
+                    />
+          </Col>
+
+          </Row>
+                              <AvField
+                    name="designation"
+                    type="text"
+                    label="Designation"
+                    errorMessage="Above field is Required."
+                    validate={{
+                    required: {value:true},
+                     pattern: {
+                            value: "^[a-zA-Z ]*$",
+                            errorMessage: "Only alphabets and space is allowed."
+                          }
+                     }}
+                    />
+
+
+                    <p style={{ fontWeight: "500", }}> Curret CTC</p>
+
+                              <Row>
+
+          <Col sm={6} md={6} lg={6}>
+                              <AvField
+                    name="CTC_lakhs"
+                    type="number"
+                    errorMessage="Above field is Required."
+                    placeholder="Lakhs"
+                    validate={{
+                    required: {value:true},
                           pattern: {
                             value: "^[0-9]+$",
-                            errorMessage: "Only Numbers"
+                            errorMessage: "Only numbers are allowed."
                           }
-                        }}
-                      />
-                      <AvField
-                        name="alphanumeric"
-                        label="Alphanumeric  "
-                        placeholder="Enter Only alphanumeric value"
-                        type="text"
-                        errorMessage="Enter Only Alphanumeric"
-                        validate={{
-                          required: { value: true },
-                          pattern: {
-                            value: "^[0-9a-zA-Z]+$",
-                            errorMessage: "Only Alphanumeric"
-                          }
-                        }}
-                      />
-                      <FormGroup className="mb-0">
-                        <div>
-                          <Button type="submit" color="primary" className="mr-1">
-                            Submit
-                        </Button>{" "}
-                          <Button type="reset" color="secondary">
-                            Cancel
-                        </Button>
-                        </div>
-                      </FormGroup>
-                    </AvForm>
-                  </CardBody>
-                </Card>
-              </Col>
+                     }}
+                    />
+          </Col>
 
-              <Col lg={6}>
-                <Card>
-                  <CardBody>
-                    <CardTitle>Range validation</CardTitle>
-                    <CardSubtitle className="mb-3">
-                      Parsley is a availity reactstrap validation. It helps you
-                      provide your users with feedback on their form submission
-                      before sending it to your server.
-                  </CardSubtitle>
-
-                    <AvForm>
-                      <AvField
-                        name="Min_Length"
-                        label="Min Length  "
-                        placeholder="Min 6 chars"
-                        type="number"
-                        errorMessage="Min 6 chars."
-                        validate={{
-                          required: { value: true },
-                          minLength: { value: 6, errorMessage: "Min 6 chars." }
-                        }}
-                      />
-                      <AvField
-                        name="Max_Length"
-                        label="Max Length  "
-                        placeholder="Max 6 chars"
-                        type="number"
-                        errorMessage="Max 6 chars."
-                        validate={{
-                          required: { value: true },
-                          maxLength: { value: 6, errorMessage: "Max 6 chars." }
-                        }}
-                      />
-                      <AvField
-                        name="Min_Value"
-                        label="Min Value  "
-                        placeholder="Min 6 Chars"
-                        min={6}
-                        type="number"
-                        errorMessage="Min Value 6"
-                        validate={{
-                          required: { value: true },
-                          min: { value: 6 }
-                        }}
-                      />
-                      <AvField
-                        name="Max_Value"
-                        label="Max Value  "
-                        placeholder="max 5 Chars"
-                        max={6}
-                        type="number"
-                        errorMessage="Max Value 6"
-                        validate={{
-                          required: { value: true },
-                          max: { value: 6 }
-                        }}
-                      />
-                      <AvField
-                        name="Range_Value"
-                        label="Range Length  "
-                        placeholder="Text between 5 - 10 chars length"
-                        type="number"
-                        errorMessage="range between 5 to 10"
-                        validate={{ required: { value: true } }}
-                      />
-                      <AvField
-                        name="Regular_Exp"
-                        label="Regular Exp  "
-                        placeholder="Hex. Color"
-                        type="number"
-                        errorMessage="Hex Value"
-                        validate={{
-                          required: { value: true },
-                          pattern: {
-                            value: "^[#0-9]+$",
-                            errorMessage: "Only Hex Value"
+          <Col sm={6} md={6} lg={6}>
+                               <AvField
+                    name="CTC_thousands"
+                    type="number"
+                    errorMessage="Above field is Required."
+                    placeholder="Thousands"
+                    validate={{
+                    required: {value:true},
+                             pattern: {
+                            value: "^[0-9]+$",
+                            errorMessage: "Only numbers are allowed."
                           }
-                        }}
-                      />
-                      <FormGroup className="mb-0">
-                        <div>
-                          <Button type="submit" color="primary" className="mr-1">
-                            Submit
-                        </Button>{" "}
-                          <Button type="reset" color="secondary">
-                            Cancel
-                        </Button>
-                        </div>
-                      </FormGroup>
+                     }}
+                    />
+          </Col>
+
+          </Row>
+
+<AddressHome />
+
+<p style={{ marginTop:"10px;" }}></p>
+
+                              <AvField
+
+                    name="reasone_change"
+                    type="text"
+                    label="Reasone for Change"
+                    errorMessage="Above field is Required."
+                    validate={{
+                    required: {value:true},
+                     }}
+                    />
+
+<IndustryFunction />
+
+<center>
+<Button color="success" outline className="waves-effect waves-light" style={{marginTop: "20px"}}>Submit </Button>
+</center>
                     </AvForm>
                   </CardBody>
                 </Card>

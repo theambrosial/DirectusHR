@@ -200,7 +200,6 @@ const authProtectedRoutes = [
 	{ path: "/form-wizard", component: FormWizard },
 	{ path: "/form-validation", component: FormValidations },
 	{ path: "/form-xeditable", component: FormXeditable },
-	{ path: "/candidate_add_edit_form", component: candidate_add_edit_form },
 
 	// Ui
 	{ path: "/ui-alerts", component: UiAlert },
@@ -250,7 +249,11 @@ const publicRoutes = [
 	//Authentication Inner
 	{ path: "/pages-login", component: Login1 },
 	{ path: "/pages-register", component: Register1 },
-	{ path: "/pages-forget-pwd", component: ForgetPwd1 }
+	{ path: "/pages-forget-pwd", component: ForgetPwd1 },
+
+	{ path: "/candidate_add_edit_form", component: candidate_add_edit_form },
+
+
 ];
 
 export { authProtectedRoutes, publicRoutes };
