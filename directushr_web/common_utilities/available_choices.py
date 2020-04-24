@@ -32,3 +32,10 @@ available_company_sizes = (
     ('500-1000 Employees', '500-1000 Employees'),
     ('1000+ Employees', '1000+ Employees'),
 )
+
+available_interview_status = (
+    ('Pending', 'Pending'),
+    ('Selected', 'Selected'),
+    ('Rejected', 'Rejected'),
+    ('On Hold', 'On Hold'),
+)

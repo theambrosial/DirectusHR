@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     'user_app',
     'client_app',
     'crm_app',
@@ -145,11 +146,8 @@ for item_file in files_list:
     with open(item_file , 'r',encoding="utf-8") as file :
         filedata = file.read()
 
-
-
     # Replace the target string
     for it in content_list:
-
         filedata = filedata.replace(data['files'].get(it)[1:], it.replace('/media/','/img/'))
 
     # Write the file out again
