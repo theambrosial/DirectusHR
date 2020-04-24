@@ -30,6 +30,9 @@ class Login extends Component {
     // handleValidSubmit
     handleValidSubmit(event, values) {
         this.props.loginUser(values, this.props.history);
+        alert(values.email);
+        alert(values.password);
+        alert(this.props.history);
     }
 
     componentDidMount()
