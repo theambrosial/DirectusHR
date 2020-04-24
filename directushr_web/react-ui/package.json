@@ -23,6 +23,7 @@
     "echarts": "^4.7.0",
     "echarts-for-react": "^2.0.15-beta.1",
     "firebase": "^7.14.0",
+    "font-awesome": "^4.7.0",
     "google-maps-react": "^2.0.2",
     "lodash.clonedeep": "^4.5.0",
     "mdbreact": "^4.25.4",

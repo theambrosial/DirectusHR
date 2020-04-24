@@ -84,7 +84,10 @@ import FormRepeater from "../pages/Forms/FormRepeater";
 import FormUpload from "../pages/Forms/FormUpload";
 import FormWizard from "../pages/Forms/FormWizard";
 import FormXeditable from "../pages/Forms/FormXeditable";
+// Other Forms
 import candidate_add_edit_form from "../pages/DHR Forms/candidate_add_edit_form";
+import ClientRelationshipTeamForm from "../pages/DHR Forms/client_relationship_team";
+import RegistrationRequest from "../pages/DHR Forms/registration_request";
 
 //Ui
 import UiAlert from "../pages/Ui/UiAlert";
@@ -121,6 +124,11 @@ import Pages500 from "../pages/Utility/pages-500";
 import ContactsGrid from "../pages/Contacts/contacts-grid";
 import ContactsList from "../pages/Contacts/contacts-list";
 import ContactsProfile from "../pages/Contacts/contacts-profile";
+
+//Other
+import 'font-awesome/css/font-awesome.min.css';
+
+
 
 const authProtectedRoutes = [
 
@@ -252,6 +260,8 @@ const publicRoutes = [
 	{ path: "/pages-forget-pwd", component: ForgetPwd1 },
 
 	{ path: "/candidate_add_edit_form", component: candidate_add_edit_form },
+	{ path: "/ClientRelationshipTeamForm", component: ClientRelationshipTeamForm },
+	{ path: "/RegistrationRequest", component: RegistrationRequest },
 
 
 ];
