@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'directushr_web.wsgi.application'
 
 DATABASES = {
  'default': {
-     'ENGINE': 'django.db.backends.postgresql',
+     'ENGINE': 'django.db.backends.mysql',
      'NAME': 'DHR_db',
      'USER': 'postgres',
      'PASSWORD': 'vikas123',
