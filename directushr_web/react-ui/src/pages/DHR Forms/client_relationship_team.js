@@ -12,8 +12,20 @@ import IndustryFunction from '../OtherComponents/industry_function';
 class ClientRelationshipTeamForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-        this.handleChange = this.handleChange.bind(this);
+    this.state = {
+    first_name: "",
+    last_name: "",
+    mobile: "",
+    country_code_mobile: "",
+    email: "",
+    user_role: null,
+    is_client: false,
+    is_inhouse_rec: false,
+    is_outside_rec: false,
+    is_client_res_manager: false,
+    is_candidate: false,
+    };
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 

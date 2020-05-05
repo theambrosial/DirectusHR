@@ -87,7 +87,8 @@ import FormXeditable from "../pages/Forms/FormXeditable";
 // Other Forms
 import candidate_add_edit_form from "../pages/DHR Forms/candidate_add_edit_form";
 import ClientRelationshipTeamForm from "../pages/DHR Forms/client_relationship_team";
-import RegistrationRequest from "../pages/DHR Forms/registration_request";
+import RegistrationRequestRecruiter from "../pages/DHR Forms/registration_request_recruiter";
+import RegistrationRequestCompany from "../pages/DHR Forms/registration_request_company";
 
 //Ui
 import UiAlert from "../pages/Ui/UiAlert";
@@ -125,9 +126,10 @@ import ContactsGrid from "../pages/Contacts/contacts-grid";
 import ContactsList from "../pages/Contacts/contacts-list";
 import ContactsProfile from "../pages/Contacts/contacts-profile";
 
+{/*
 //Other
 import 'font-awesome/css/font-awesome.min.css';
-
+*/}
 
 
 const authProtectedRoutes = [
@@ -261,7 +263,8 @@ const publicRoutes = [
 
 	{ path: "/candidate_add_edit_form", component: candidate_add_edit_form },
 	{ path: "/ClientRelationshipTeamForm", component: ClientRelationshipTeamForm },
-	{ path: "/RegistrationRequest", component: RegistrationRequest },
+	{ path: "/RegistrationRequestCompany", component: RegistrationRequestCompany },
+	{ path: "/RegistrationRequestRecruiter", component: RegistrationRequestRecruiter },
 
 
 ];

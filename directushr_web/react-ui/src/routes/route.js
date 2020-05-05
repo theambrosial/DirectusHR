@@ -15,11 +15,11 @@ const AppRoute = ({
 			render={props => {
 				const fireBaseBackend = getFirebaseBackend();
 
-				if (isAuthProtected && !fireBaseBackend.getAuthenticatedUser()) {
-					return (
-						<Redirect to={{ pathname: "/login", state: { from: props.location } }} />
-					);
-				}
+//				if (isAuthProtected && !fireBaseBackend.getAuthenticatedUser()) {
+//					return (
+//						<Redirect to={{ pathname: "/login", state: { from: props.location } }} />
+//					);
+//				}
 
 				return (
 					<Layout>

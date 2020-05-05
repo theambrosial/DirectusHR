@@ -13,6 +13,13 @@ class IndustryFunction extends Component {
         this.state = {};
     }
 
+              handleInputChange(event) {
+     event.persist()
+        let key = event.target.name
+        let value = event.target.value
+        this.props.onChange(key, value);
+  }
+
     render() {
         return (
             <React.Fragment>
@@ -24,7 +31,7 @@ class IndustryFunction extends Component {
 
           <Col sm={12} md={12} lg={12}>
 
-          <select class="form-control" value={this.state.value} onChange={this.handleChange}>
+          <select className="form-control" name="intrested_industries" onChange={this.handleInputChange.bind(this)}>
      <option value="Select Industry">Select Industry</option>
 <option value="IT-Software / Software Services">IT-Software / Software Services</option>
 <option value="BPO / Call Centre / ITES">BPO / Call Centre / ITES</option>
@@ -105,7 +112,7 @@ class IndustryFunction extends Component {
 
                     <Col sm={12} md={12} lg={12}>
 
-                     <select class="form-control" value={this.state.value} onChange={this.handleChange}>
+                     <select className="form-control" name="intrested_function" onChange={this.handleInputChange.bind(this)}>
     <option value="Select Function">Select Function</option>
 <option value="Sales, Retail, Business Development">Sales, Retail, Business Development</option>
 <option value="IT Software - Application Programming, Maintenance">IT Software - Application Programming, Maintenance</option>

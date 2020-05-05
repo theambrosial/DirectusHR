@@ -1,18 +1,19 @@
 from django.contrib.auth import login, logout
 from django.shortcuts import render
-from rest_framework.authentication import TokenAuthentication
+from django.views.decorators.csrf import ensure_csrf_cookie
+from rest_framework.authentication import TokenAuthentication,SessionAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import generics
+from .models import SiteUser
+from .serializers import LoginSerializer, UserSerializer
 
-from .serializers import LoginSerializer
-
-
+@ensure_csrf_cookie
 def index(request):
-    return render(request,'react.html')
+    return render(request,'index.html')
 
 class LoginView(APIView):
-
     def post(selfself, request):
         seralizer = LoginSerializer(data=request.data)
         seralizer.is_valid(raise_exception=True)
@@ -30,3 +31,9 @@ class LogoutView(APIView):
 
         logout(request)
         return Response(status=204)
+
+class RegisterationRequest(generics.ListCreateAPIView):
+    # authentication_classes = (TokenAuthentication, SessionAuthentication)
+    queryset = SiteUser.objects.all()
+    serializer_class = UserSerializer
+

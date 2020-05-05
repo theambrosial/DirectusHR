@@ -7,35 +7,87 @@ import SimpleBar from "simplebar-react";
 import avatar3 from "../../../assets/images/users/avatar-3.jpg";
 import avatar4 from "../../../assets/images/users/avatar-4.jpg";
 
+import cookie from 'react-cookies'
+
 class NotificationDropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: false
+      menu: false,
+        notifs : []
     };
     this.toggle = this.toggle.bind(this);
   }
+
+  loadNotifications(){
+      const endpoint = '/api/registration_request/'
+      let thisComp = this
+      let lookupOptions = {
+          method: "GET",
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      }
+
+      const csrfToken = cookie.load('csrftoken')
+      if (csrfToken !== undefined) {
+          lookupOptions['credentials'] = 'include'
+          lookupOptions['headers']['X-CSRFToken'] = csrfToken
+       }
+
+      fetch(endpoint, lookupOptions)
+      .then(function(response){
+          if (response.status == 404){
+              console.log('Page not found')
+          }
+          return response.json()
+      }).then(function(responseData){
+
+          if (responseData){
+            thisComp.setState({
+                 notifs : responseData
+            })
+            console.log("responseData")
+            console.log(responseData)
+          } else {
+
+          }
+      }).catch(function(error){
+          console.log("error", error)
+      })
+  }
+
+  componentDidMount(){
+
+        this.loadNotifications()
+    }
+
+
+
 
   toggle() {
     this.setState(prevState => ({
       menu: !prevState.menu
     }));
   }
+
   render() {
+  const {notifs} = this.state
     return (
+
       <React.Fragment>
 
         <Dropdown
           isOpen={this.state.menu}
           toggle={this.toggle}
           className="dropdown d-inline-block"
-          tag="li"
-        >
+          tag="li">
+
           <DropdownToggle
             className="btn header-item noti-icon waves-effect"
             tag="button" id="page-header-notifications-dropdown">
             <i className="bx bx-bell bx-tada"></i>
-            <span className="badge badge-danger badge-pill">3</span>
+            <span className="badge badge-danger badge-pill">{notifs !== undefined ? notifs.length : 0}</span>
           </DropdownToggle>
 
           <DropdownMenu className="dropdown-menu dropdown-menu-lg p-0" right>
@@ -51,63 +103,43 @@ class NotificationDropdown extends Component {
             </div>
 
             <SimpleBar style={{ height: "230px" }}>
-              <Link to="" className="text-reset notification-item">
-                <div className="media">
-                  <div className="avatar-xs mr-3">
-                    <span className="avatar-title bg-primary rounded-circle font-size-16">
-                      <i className="bx bx-cart"></i>
-                    </span>
-                  </div>
-                  <div className="media-body">
-                    <h6 className="mt-0 mb-1"> Company Registration Request</h6>
-                    <div className="font-size-12 text-muted">
-                      <p className="mb-1">Farintsol has requested...</p>
-                      <p className="mb-0"><i className="mdi mdi-clock-outline"></i> 3 min ago</p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link to="" className="text-reset notification-item">
+
+
+            {notifs !== undefined ? notifs.map((notifItem, index)=>{
+                return(
+
+
+                             <Link to="" className="text-reset notification-item">
                 <div className="media">
                   <img src={avatar3} className="mr-3 rounded-circle avatar-xs" alt="user-pic" />
                   <div className="media-body">
-                    <h6 className="mt-0 mb-1">Vikas Pandey</h6>
+                    {notifItem.is_client ? <h6 className="mt-0 mb-1">Company Registration Request</h6> : [(notifItem.is_outside_rec ? <h6 className="mt-0 mb-1">Freelance Recruiters Request</h6> : <h6 className="mt-0 mb-1">New Candidate has uploaded a CV</h6> )] }
                     <div className="font-size-12 text-muted">
-                      <p className="mb-1">It will seem like simplified English.</p>
+                      {notifItem.is_candidate ? <p className="mb-1">{notifItem.first_name} {notifItem.last_name} has uploaded...</p>  : <p className="mb-1">{notifItem.first_name} {notifItem.last_name} has requested...</p>  }
                       <p className="mb-0"><i className="mdi mdi-clock-outline"></i> 1 hours ago</p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link to="" className="text-reset notification-item">
-                <div className="media">
-                  <div className="avatar-xs mr-3">
-                    <span className="avatar-title bg-success rounded-circle font-size-16">
-                      <i className="bx bx-badge-check"></i>
-                    </span>
-                  </div>
-                  <div className="media-body">
-                    <h6 className="mt-0 mb-1">XYZ</h6>
-                    <div className="font-size-12 text-muted">
-                      <p className="mb-1">A to Z</p>
-                      <p className="mb-0"><i className="mdi mdi-clock-outline"></i> 3 min ago</p>
                     </div>
                   </div>
                 </div>
               </Link>
 
-              <Link to="" className="text-reset notification-item">
+                )
+
+            }):
+
+                          <Link to="" className="text-reset notification-item">
                 <div className="media">
-                  <img src={avatar4} className="mr-3 rounded-circle avatar-xs" alt="user-pic" />
+                  <div className="avatar-xs mr-3">
+
+                  </div>
                   <div className="media-body">
-                    <h6 className="mt-0 mb-1">Salena Layfield</h6>
-                    <div className="font-size-12 text-muted">
-                      <p className="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
-                      <p className="mb-0"><i className="mdi mdi-clock-outline"></i> 1 hours ago</p>
-                    </div>
+                    <h6 className="mt-0 mb-1">Nothing Here</h6>
                   </div>
                 </div>
               </Link>
+
+            }
+
+
 
             </SimpleBar>
             <div className="p-2 border-top">

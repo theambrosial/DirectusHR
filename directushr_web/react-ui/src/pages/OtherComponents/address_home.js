@@ -10,39 +10,61 @@ import profileImg from "../../assets/images/profile-img.png";
 class AddressHome extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+
     }
+          handleInputChange(event) {
+     event.persist()
+        let key = event.target.name
+        let value = event.target.value
+        this.props.onChange(key, value);
+  }
 
     render() {
         return (
             <React.Fragment>
-
+<Row>
+<Col sm={8} md={8} lg={8}>
                       <AvField
-                        name="address_home"
+                        name="address_line"
                         label="Address"
                         type="text"
                         errorMessage="Enter address."
+                        onChange={this.handleInputChange.bind(this)}
                         validate={{ required: { value: true } }}
                       />
+                      </Col>
 
+                      <Col sm={4} md={4} lg={4}>
+                      <AvField
+                        name="street"
+                        label="Street"
+                        type="text"
+                        errorMessage="Enter street."
+                        onChange={this.handleInputChange.bind(this)}
+                        validate={{ required: { value: true } }}
+                      />
+                      </Col>
+</Row>
           <Row>
 
           <Col sm={4} md={4} lg={4}>
                       <AvField
-                        name="city_home"
+                        name="city"
                         label="City"
                         type="text"
                         errorMessage="Enter city."
+                        onChange={this.handleInputChange.bind(this)}
                         validate={{ required: { value: true } }}
                       />
           </Col>
 
           <Col sm={4} md={4} lg={4}>
                                 <AvField
-                        name="pincode_home"
+                        name="zip_code"
                         label="Pincode"
                         type="number"
                         errorMessage="Enter Pincode."
+                        onChange={this.handleInputChange.bind(this)}
                         validate={{
                           required: { value: true },
                           maxLength: { value: 6, errorMessage: "Max 6 chars." }
@@ -51,26 +73,57 @@ class AddressHome extends Component {
 
           </Col>
 
+
                     <Col sm={4} md={4} lg={4}>
                                 <AvField
-                        name="pincode_home"
-                        label="Pincode"
+                        name="landmark"
+                        label="Landmark"
                         type="text"
-                        errorMessage="Enter address."
-                        validate={{ required: { value: true } }}
+                        onChange={this.handleInputChange.bind(this)}
+                        validate={{ required: { value: false } }}
                       />
 
           </Col>
 
           </Row>
-<p style={{ fontWeight: "500", }}> Select Country</p>
 
-          <Row>
+
+
+            <Row>
 
           <Col sm={4} md={4} lg={4}>
+                      <AvField
+                        name="district"
+                        label="District"
+                        type="text"
+                        errorMessage="Enter district."
+                        onChange={this.handleInputChange.bind(this)}
+                        validate={{ required: { value: true } }}
+                      />
+          </Col>
 
-          <select class="form-control" value={this.state.value} onChange={this.handleChange}>
- <option value="Afghanistan">Afghanistan</option>
+          <Col sm={4} md={4} lg={4}>
+                                <AvField
+                        name="state"
+                        label="State"
+                        type="text"
+                        errorMessage="Enter State."
+                        onChange={this.handleInputChange.bind(this)}
+                        validate={{
+                          required: { value: true }
+                        }}
+                      />
+
+          </Col>
+
+                         <Col sm={4} md={4} lg={4}>
+
+          <select className="form-control"
+          name="country"
+          label="Country"
+          onChange={this.handleInputChange.bind(this)}>
+                <option value="">Select Country</option>
+                <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -316,9 +369,11 @@ class AddressHome extends Component {
                 <option value="Zimbabwe">Zimbabwe</option>
                      </select>
           </Col>
-                    <Col sm={8} md={8} lg={8}>
-</Col>
+
+
+
           </Row>
+
             </React.Fragment>
         );
     }

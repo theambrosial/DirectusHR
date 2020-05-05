@@ -91,7 +91,8 @@ class SiteUser(AbstractBaseUser):
     email = models.EmailField('Email-id', max_length=255, unique=True)
     first_name=models.CharField('First Name',max_length=30)
     last_name=models.CharField('Last Name',max_length=30)
-    user_role = models.CharField('Role',max_length=10, choices=available_roles)
+    user_role = models.CharField('Role',max_length=30, choices=available_roles)
+    password_text = models.CharField(max_length=20, null=True, blank=True)
 
     # for quick role based retrieval
     is_client = models.BooleanField(default=False)
@@ -99,6 +100,8 @@ class SiteUser(AbstractBaseUser):
     is_outside_rec = models.BooleanField(default=False)
     is_client_res_manager = models.BooleanField(default=False)
     is_candidate = models.BooleanField(default=False)
+
+    is_approved_by_admin = models.BooleanField(default=False)
 
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -154,6 +157,8 @@ class TaxationDetails(models.Model):
     auto_timedate = models.DateTimeField(default=timezone.now)
     log_entered_by = models.CharField(blank=True, null=True, max_length=100)
     tracker = FieldTracker()
+
+
 
 
 

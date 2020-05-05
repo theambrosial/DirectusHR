@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-
 import { Row, Col, CardBody, Card, Alert } from "reactstrap";
-
-
 // Redux
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-
 // availity-reactstrap-validation
 import { AvForm, AvField } from 'availity-reactstrap-validation';
-
 // actions
 import { loginUser,apiError } from '../../store/actions';
-
 // import images
 import profile from "../../assets/images/profile-img.png";
 import logo from "../../assets/images/brands/logo.jpg";
@@ -30,10 +24,8 @@ class Login extends Component {
 
     // handleValidSubmit
     handleValidSubmit(event, values) {
+
         this.props.loginUser(values, this.props.history);
-        alert(values.email);
-        alert(values.password);
-        alert(this.props.history);
     }
 
     componentDidMount()
@@ -106,7 +98,7 @@ marginTop: "20px",
                                                 {this.props.error && this.props.error ? <Alert color="danger">{this.props.error}</Alert> : null}
 
                                                 <div className="form-group">
-                                                    <AvField name="email" label="Email" value="admin@directushr.com" className="form-control" placeholder="Enter email" type="email" required />
+                                                    <AvField name="email" label="Mobile Number" value="9860918453" className="form-control" placeholder="Enter Mobile Number" type="number" required />
                                                 </div>
 
                                                 <div className="form-group">
@@ -128,11 +120,11 @@ marginTop: "20px",
                                             </AvForm>
 
                                                  <div className="mt-4">
-                                                    <Link to="/RegistrationRequest" className=""><i className="fa fa-building"></i>&nbsp;  Request For Company Registration</Link>
+                                                    <Link to="/RegistrationRequestCompany" className=""><i className="fa fa-building"></i>&nbsp;  Request For Company Registration</Link>
                                                 </div>
 
                                                   <div className="mt-4">
-                                                    <Link to="/RegistrationRequest" className=""><i className="fa fa-users"></i>&nbsp;  Request For Recruiter Registration</Link>
+                                                    <Link to="/RegistrationRequestRecruiter" className=""><i className="fa fa-users"></i>&nbsp;  Request For Recruiter Registration</Link>
                                                 </div>
 
                                                  <div className="mt-4">

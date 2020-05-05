@@ -67,7 +67,7 @@ class UserAdmin(BaseUserAdmin):
 
 
 
-
+admin.site.site_header = "DirectUs HR Admin"
 admin.site.register(SiteUser, UserAdmin)
 admin.site.unregister(Group)
 

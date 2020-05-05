@@ -5,6 +5,7 @@ parse_git_log.py
 **/migrations
 **/venv
 **/static_cdn
+.vs
 # Node.js related
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 

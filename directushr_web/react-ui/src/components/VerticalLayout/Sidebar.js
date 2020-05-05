@@ -23,8 +23,17 @@ const SidebarContent = props => {
                         </Link>
                     </li>
 
+                    <li>
+                        <Link to="/ClientRelationshipTeamForm" className="waves-effect">
+                            <i className="bx bx-home-circle"></i><span className="badge badge-pill badge-info float-right"></span>
+                            <span>Add/Edit CRM</span>
+                        </Link>
+                    </li>
+
                 </ul>
             </div>
+
+
         </>
     )
 };
