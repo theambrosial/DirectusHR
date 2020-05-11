@@ -30,10 +30,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'user_app',
-    # 'client_app',
-    # 'crm_app',
-    # 'candidate_app',
-    # 'recruiter_app',
+    'client_app',
+    'crm_app',
+    'candidate_app',
+    'recruiter_app',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,7 @@ AUTH_USER_MODEL = 'user_app.SiteUser'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'react-ui','build')],     #change
+        'DIRS': [os.path.join(BASE_DIR, 'react-ui','build2')],     #change
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,16 +70,16 @@ WSGI_APPLICATION = 'directushr_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
- 'default': {
-     'ENGINE': 'django.db.backends.mysql',
-     'NAME': 'DHR_db',
-     'USER': 'postgres',
-     'PASSWORD': 'vikas123',
-     'HOST': '127.0.0.1',
-     'PORT': '5432',
- }
-}
+# DATABASES = {
+#  'default': {
+#      'ENGINE': 'django.db.backends.mysql',
+#      'NAME': 'DHR_db',
+#      'USER': 'postgres',
+#      'PASSWORD': 'vikas123',
+#      'HOST': '127.0.0.1',
+#      'PORT': '5432',
+#  }
+# }
 
 
 # Password validation
@@ -118,7 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-REACT_BUILD_DIR = os.path.join(BASE_DIR, 'react-ui', 'build')
+REACT_BUILD_DIR = os.path.join(BASE_DIR, 'react-ui', 'build2')
 
 
 # path = os.path.join(REACT_BUILD_DIR, "asset-manifest.json")
@@ -159,7 +159,7 @@ REACT_BUILD_DIR = os.path.join(BASE_DIR, 'react-ui', 'build')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     # os.path.join(BASE_DIR, "static_local"),   #old
-    os.path.join(BASE_DIR, "react-ui", "build", "static"),    #change
+    os.path.join(BASE_DIR, "react-ui", "build2", "static"),    #change
 
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn", "static_root")
