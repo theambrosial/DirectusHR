@@ -44,7 +44,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+directushr_web/react-ui/build2/
 develop-eggs/
 dist/
 downloads/
