@@ -5,12 +5,13 @@ ALLOWED_HOSTS = []
 DATABASES = {
 
        'default': {
-           'ENGINE': 'django.db.backends.postgresql',
-           'NAME': 'lndscpd_dev',
-           'USER': 'harpatel',
-           'PASSWORD': 'harpatel123',
-           'HOST': 'lddbinstance.cyif2hgx4jxv.ap-south-1.rds.amazonaws.com',
-           'PORT': '5441',
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': 'vikka$DHR_db',
+           'USER': 'vikka',
+           'PASSWORD': '',
+           'HOST': 'vikka.mysql.pythonanywhere-services.com',
+           'PORT': '3306',
+    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
 
        }
 
