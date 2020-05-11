@@ -60,7 +60,7 @@ class ForgetPasswordPage extends Component {
                             name="email"
                             label="Email"
                             className="form-control"
-                            placeholder="Enter email"
+                            placeholder="Enter emsail"
                             type="email"
                             required
                           />
@@ -89,7 +89,7 @@ class ForgetPasswordPage extends Component {
                       Login
                       </Link>{" "}
                   </p>
-                  <p>© {new Date().getFullYear()} Skote. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                  <p>© {new Date().getFullYear()} DirectUs HR. Crafted with <i className="mdi mdi-heart text-danger"></i> by Farintsol</p>
                 </div>
               </Col>
             </Row>

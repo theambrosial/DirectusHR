@@ -14,7 +14,8 @@ import { userForgetPassword } from "../../store/actions";
 
 // import images
 import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/logo.svg";
+import logo from "../../assets/images/brands/logo.jpg";
+
 
 class ForgetPasswordPage extends Component {
   constructor(props) {
@@ -31,6 +32,29 @@ class ForgetPasswordPage extends Component {
   }
 
   render() {
+
+
+const logoImage ={
+width: "200px",
+marginLeft: "7vw",
+borderRadius: "0%",
+roundedCircle: '0%',
+marginTop: "40px",
+
+};
+
+const cardBody = {
+};
+
+const formField = {
+marginTop: "80px",
+};
+
+const cardAllign = {
+marginTop: "20px",
+};
+
+
     return (
       <React.Fragment>
         <div className="home-btn d-none d-sm-block">
@@ -45,8 +69,8 @@ class ForgetPasswordPage extends Component {
                     <Row>
                       <Col className="col-7">
                         <div className="text-primary p-4">
-                          <h5 className="text-primary">Welcome Back !</h5>
-                          <p>Sign in to continue to Skote.</p>
+                          <h5 className="text-primary">Forgot Password?</h5>
+                          <p>Enter your email below to reset the password.</p>
                         </div>
                       </Col>
                       <Col className="col-5 align-self-end">
@@ -55,16 +79,19 @@ class ForgetPasswordPage extends Component {
                     </Row>
                   </div>
                   <CardBody className="pt-0">
-                    <div>
-                      <Link to="/">
-                        <div className="avatar-md profile-user-wid mb-4">
-                          <span className="avatar-title rounded-circle bg-light">
-                            <img src={logo} alt="" className="rounded-circle" height="34" />
-                          </span>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="p-2">
+                                        <div>
+
+                                            <Link to="/">
+                                                <div className="avatar-md profile-user-wid mb-4">
+                                                    <span className="">
+                                                        <img src={logo} alt="" style={logoImage}/>
+                                                    </span>
+                                                </div>
+                                            </Link>
+
+
+                                        </div>
+                    <div className="p-2" style={{marginTop:"40px"}}>
 
                       {this.props.forgetError && this.props.forgetError ? (
                         <Alert color="danger" style={{ marginTop: "13px" }}>
@@ -82,7 +109,7 @@ class ForgetPasswordPage extends Component {
                         onValidSubmit={this.handleValidSubmit}
                       >
 
-                        <div className="form-group">
+                        <div className="form-group" style={{marginTop: "50px",}}>
                           <AvField
                             name="email"
                             label="Email"
@@ -110,13 +137,13 @@ class ForgetPasswordPage extends Component {
                   <p>
                     Go back to{" "}
                     <Link
-                      to="pages-login"
+                      to="/login"
                       className="font-weight-medium text-primary"
                     >
                       Login
                       </Link>{" "}
                   </p>
-                  <p>© {new Date().getFullYear()} Skote. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                  <p>© {new Date().getFullYear()} DirectUS HR. Crafted with <i className="mdi mdi-heart text-danger"></i> by Farintsol.</p>
                 </div>
               </Col>
             </Row>
