@@ -1,0 +1,25 @@
+diff a/directushr_web/directushr_web/settings.py b/directushr_web/directushr_web/settings.py	(rejected hunks)
+@@ -30,10 +30,10 @@ INSTALLED_APPS = [
+     'rest_framework',
+     'rest_framework.authtoken',
+     'user_app',
+-    # 'client_app',
+-    # 'crm_app',
+-    # 'candidate_app',
+-    # 'recruiter_app',
++    'client_app',
++    'crm_app',
++    'candidate_app',
++    'recruiter_app',
+ ]
+ 
+ MIDDLEWARE = [
+@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'directushr_web.wsgi.application'
+ 
+ DATABASES = {
+  'default': {
+-     'ENGINE': 'django.db.backends.mysql',
++     'ENGINE': 'django.db.backends.postgresql',
+      'NAME': 'DHR_db',
+      'USER': 'postgres',
+      'PASSWORD': 'vikas123',

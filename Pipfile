@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+django-cors-headers = "==2.2.0"
+djangorestframework = "==3.8.2"
+pytz = "==2019.1"
+psycopg2 = "==2.8.5"
+sqlparse = "==0.3.0"
+chardet = "==3.0.4"
+requests = "==2.21.0"
+urllib3 = "==1.24.2"
+django-model-utils = "==4.0.0"
+Django = "==2.2"
+MarkupSafe = "==1.1.1"
+Pillow = "==7.1.1"
+psycopg2-binary = "*"
+mysql-python = "*"
+mysqlclient = "*"
+
+[requires]
+python_version = "3.6"
